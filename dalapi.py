@@ -11,6 +11,7 @@ def uploade_file():
 def encode_file():
    if request.method == 'POST':
       f = request.files['file']
+      f.filename = "yarak"
       f.save(secure_filename(f.filename))
       out = subprocess.check_output("python ./dalencode.py " + f.filename + " > encoded.dal", shell=True)
       subprocess.call("rm ./" +  f.filename , shell=True)
@@ -20,6 +21,7 @@ def encode_file():
 def decode_file():
    if request.method == 'POST':
       f = request.files['file']
+      f.filename = "yarak"
       f.save(secure_filename(f.filename))
       out = subprocess.check_output("python ./daldecode.py " + f.filename + " decoded.dal", shell=True)
       subprocess.call("rm ./" +  f.filename , shell=True)
