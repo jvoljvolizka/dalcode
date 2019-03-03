@@ -7,4 +7,7 @@ RUN pip install flask
 
 EXPOSE 5000
 
+
+
+
 CMD [ "python", "/root/dalcoder/dalapi.py" ]

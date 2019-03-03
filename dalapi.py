@@ -13,9 +13,9 @@ def encode_file():
       f = request.files['file']
       f.filename = "yarak"
       f.save(secure_filename(f.filename))
-      out = subprocess.check_output("python ./dalencode.py " + f.filename + " > encoded.dal", shell=True)
+      out = subprocess.check_output("python /root/dalcoder/dalencode.py " + f.filename + " > /root/dalcoder/encoded.dal", shell=True)
       subprocess.call("rm ./" +  f.filename , shell=True)
-      return send_file("encoded.dal" , attachment_filename='encoded.dal')
+      return send_file("/root/dalcoder/encoded.dal" , attachment_filename='encoded.dal')
 
 @app.route('/decode', methods = ['GET', 'POST'])
 def decode_file():
@@ -23,8 +23,8 @@ def decode_file():
       f = request.files['file']
       f.filename = "yarak"
       f.save(secure_filename(f.filename))
-      out = subprocess.check_output("python ./daldecode.py " + f.filename + " decoded.dal", shell=True)
+      out = subprocess.check_output("python /root/dalcoder/daldecode.py " + f.filename + " /root/dalcoder/decoded.dal", shell=True)
       subprocess.call("rm ./" +  f.filename , shell=True)
-      return send_file("decoded.dal" , attachment_filename='decoded.dal')
+      return send_file("/root/dalcoder/decoded.dal" , attachment_filename='decoded.dal')
 if __name__ == '__main__':
    app.run(host="0.0.0.0", debug = True)
