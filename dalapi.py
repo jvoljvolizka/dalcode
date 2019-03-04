@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, send_file
 from werkzeug import secure_filename
 import subprocess
 app = Flask(__name__)
+app.static_folder = 'static'
 
 @app.route('/')
 def uploade_file():
@@ -27,4 +28,5 @@ def decode_file():
       subprocess.call("rm ./" +  f.filename , shell=True)
       return send_file("/root/dalcoder/decoded.dal" , attachment_filename='decoded.dal')
 if __name__ == '__main__':
+   app.static_folder = 'static'
    app.run(host="0.0.0.0", debug = True)
