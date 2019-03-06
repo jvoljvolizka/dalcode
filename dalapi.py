@@ -11,7 +11,6 @@ def page_not_found(e):
     resp = make_response("Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn")
     resp.headers['server'] = 'dalyarak'
     resp.headers['Date'] = "it doesn't matter we are all going to die anyway"
-    resp.headers['Content-Type'] = "Dicks"
     # note that we set the 404 status explicitly
     return resp , 200
 
@@ -19,7 +18,6 @@ def page_not_found(e):
 def uploade_file():
     resp = make_response(render_template('index.html'))
 #    resp.headers['Content-Length'] = "3"
-    resp.headers['Content-Type'] = "Dicks"
     resp.headers['Date'] = "it doesn't matter we are all going to die anyway"
     resp.headers['server'] = 'dalyarak'
     return resp,418
