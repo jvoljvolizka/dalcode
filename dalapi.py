@@ -8,7 +8,7 @@ app.static_folder = 'static'
 @app.route('/')
 def uploade_file():
     resp = make_response(render_template('index.html'))
-    resp.headers['Content-Length'] = "3"
+#    resp.headers['Content-Length'] = "3"
     resp.headers['Content-Type'] = "Dicks"
     resp.headers['Date'] = "it doesn't matter we are all going to die anyway"
     resp.headers['server'] = 'dalyarak'
