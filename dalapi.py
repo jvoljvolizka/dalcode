@@ -7,10 +7,12 @@ app.static_folder = 'static'
 
 @app.route('/')
 def uploade_file():
-   return render_template('index.html'),418
-
+    resp.headers['server'] = 'dalyarak'
+    return render_template('index.html'),418
+    
 @app.route('/encode', methods = ['GET', 'POST'])
 def encode_file():
+   resp.headers['server'] = 'dalyarak'
    if request.method == 'POST':
       f = request.files['file']
       f.filename = "yarak"
@@ -21,6 +23,7 @@ def encode_file():
 
 @app.route('/decode', methods = ['GET', 'POST'])
 def decode_file():
+   resp.headers['server'] = 'dalyarak'
    if request.method == 'POST':
       f = request.files['file']
       f.filename = "yarak"
