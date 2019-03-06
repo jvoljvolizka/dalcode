@@ -5,6 +5,16 @@ import subprocess
 app = Flask(__name__)
 app.static_folder = 'static'
 
+
+@app.errorhandler(404)
+def page_not_found(e):
+    resp = make_response("Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn")
+    resp.headers['server'] = 'dalyarak'
+    resp.headers['Date'] = "it doesn't matter we are all going to die anyway"
+    resp.headers['Content-Type'] = "Dicks"
+    # note that we set the 404 status explicitly
+    return resp , 200
+
 @app.route('/')
 def uploade_file():
     resp = make_response(render_template('index.html'))
