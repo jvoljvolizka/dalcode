@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Source SDK
+Comment=Play this game on Steam
+Exec=steam steam://rungameid/211
+Icon=steam
+Terminal=false
+Type=Application
+Categories=Game;
