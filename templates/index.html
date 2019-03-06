@@ -5,13 +5,14 @@
 		<title>My life is a joke</title>
 	</head>
 	<link  href="{{ url_for('static', filename='bulma.css') }}" rel="stylesheet" type="text/css">
+	<script src="{{ url_for('static', filename='jquery.js') }}"></script>
 	<body>
 		
 		<div class="container">
 			<h1 class="title">WELCOME TO MY SAD PLACE IN THE INTERNET</h1>
 			
 			<div class="columns is-mobile">
-				<form action="http://dalcode.jvoljvolizka.me/encode" method="post" enctype="multipart/form-data" class="column">
+				<form action="/encode" method="post" enctype="multipart/form-data" class="column">
 					
 					<div class="file">
 						<label class="file-label">
@@ -31,7 +32,7 @@
 					</div>
 				</form>
 				
-				<form action="http://dalcode.jvoljvolizka.me/decode" method="post" enctype="multipart/form-data" class="column">
+				<form action="/decode" method="post" enctype="multipart/form-data" class="column">
 					<div class="file">
 						<label class="file-label">
 							<input class="file-input" type="file" name="file">
@@ -49,20 +50,47 @@
 							
 						</form>
 					</div>
+					
+					<!--
 					<h2 class="title">Encode/decode text and please end my misery</h2>
 					<p class="subtitle">Not yet babe</p>
 					<div class="columns is-mobile">
 						<div class="field column">
 							<div class="control">
-								<textarea class="textarea is-hovered" type="text" placeholder="encode"></textarea>
+								<textarea class="textarea is-hovered" id="textarencode" type="text" placeholder="encode"></textarea>
 							</div>
+							<a class="button is-dark" id="encodejsbutton">Encode !</a>
 						</div>
 						<div class="field column">
 							<div class="control">
-								<textarea class="textarea is-hovered" type="text" placeholder="decode"></textarea>
+								<textarea class="textarea is-hovered" id="textardecode" type="text" placeholder="decode"></textarea>
 							</div>
+							<a class="button is-dark" id="decodejsbutton">Decode !</a>
 						</div>
 					</div>
+					<script>
+					if (!$("#textardecode").val()) {
+					$("#decodejsbutton").hide();
+					}
+					$('#textardecode').change(function(){
+					if($(this).val().length > 0){
+					$("#decodejsbutton").fadeIn();
+					}
+					});
+					
+					if (!$("#textarencode").val()) {
+					$("#encodejsbutton").hide();
+					}
+					$('#textarencode').change(function(){
+					if($(this).val().length > 0){
+					$("#encodejsbutton").fadeIn();
+					}
+					});
+
+
+					</script>
+
+					dalyarak -->
 					<br/>
 					<div class="content is-centered">
 						<p class="content">this simple web page will take your precious file and it will encode with word "<em><strong>dalyarak</strong></em>" it works by taking every 1 and 0 in the file and converting them to upper or lower case character in word "<em><strong>dalyarak</strong></em>" for example 10100101 will be DaLyaRaK now you can ask Mr Jvolizka why in the holy fuck would i ever need something like this and who are you anyway ? how dare you create an encoding system with an arbitary word like "<em><strong>dalyarak</strong></em>"</p>

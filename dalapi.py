@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 from flask import Flask, render_template, request, send_file
 from werkzeug import secure_filename
 import subprocess
@@ -29,4 +30,4 @@ def decode_file():
       return send_file("/root/dalcoder/decoded.dal" , attachment_filename='decoded.dal')
 if __name__ == '__main__':
    app.static_folder = 'static'
-   app.run(host="0.0.0.0", debug = True)
+   app.run(host="0.0.0.0", debug = False)
